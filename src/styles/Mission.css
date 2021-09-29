@@ -1,0 +1,13 @@
+.mission-section {
+  padding: 1rem 0;
+}
+
+.mission-back-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+  text-decoration: none;
+}
