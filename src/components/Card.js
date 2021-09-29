@@ -1,9 +1,15 @@
-import { IconX } from '@tabler/icons'
+import { useHistory } from 'react-router-dom'
 import LinkButton from './LinkButton'
-import Button from './Button'
 import './../styles/Card.css'
 
-const Card = ({ image, name, details, date, external_link, expanded }) => {
+const Card = ({ id, image, name, details, date, external_link, expanded }) => {
+  const history = useHistory()
+
+  const onClick = () => {
+    if (expanded) return
+    history.push(`/mission/${id}`)
+  }
+
   function getDetails () {
     if (expanded) return details
     return Array.from(details)
@@ -13,14 +19,7 @@ const Card = ({ image, name, details, date, external_link, expanded }) => {
   }
 
   return (
-    <div className={expanded ? 'card expanded' : 'card'}>
-      {expanded && (
-        <Button
-          icon={IconX}
-          type='button'
-          className='close-card-button danger'
-        />
-      )}
+    <div onClick={onClick} className={expanded ? 'card expanded' : 'card'}>
       {expanded && image && (
         <div className='card-image-container'>
           <img className='card-image' src={image} alt={name} />
@@ -32,7 +31,6 @@ const Card = ({ image, name, details, date, external_link, expanded }) => {
       {expanded && (
         <LinkButton
           className='card-link-button'
-          onClick={event => event.stopPropagation()}
           text='See more'
           href={external_link}
           rel='noreferrer'
