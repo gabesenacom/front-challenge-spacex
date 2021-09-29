@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from './Button'
 import Form from './Form'
+import { IconSearch } from '@tabler/icons'
 import './../styles/Header.css'
 
 const Header = ({ onSubmit }) => {
@@ -33,6 +34,7 @@ const Header = ({ onSubmit }) => {
           onClick={onHeaderButtonClick}
           text='New search'
           className='search-button'
+          icon={IconSearch}
         />
       )}
     </header>
