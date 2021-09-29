@@ -16,6 +16,11 @@
   cursor: pointer;
 }
 
+.card.expanded {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .card:hover {
   box-shadow: var(--card-shadow-08dp);
 }
@@ -30,8 +35,7 @@
 }
 
 @media (max-width: 767px) {
-  .card,
-  .card.expanded {
+  .card {
     flex-basis: 80%;
   }
 }
