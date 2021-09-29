@@ -1,17 +1,9 @@
-import { useState } from 'react'
 import { IconX } from '@tabler/icons'
 import LinkButton from './LinkButton'
 import Button from './Button'
 import './../styles/Card.css'
 
-const Card = ({ image, name, details, date, external_link }) => {
-  const [expanded, setExpanded] = useState(false)
-
-  const onClick = event => {
-    setExpanded(prevExpanded => !prevExpanded)
-    event.stopPropagation()
-  }
-
+const Card = ({ image, name, details, date, external_link, expanded }) => {
   function getDetails () {
     if (expanded) return details
     return Array.from(details)
@@ -21,11 +13,10 @@ const Card = ({ image, name, details, date, external_link }) => {
   }
 
   return (
-    <div onClick={onClick} className={expanded ? 'card expanded' : 'card'}>
+    <div className={expanded ? 'card expanded' : 'card'}>
       {expanded && (
         <Button
           icon={IconX}
-          onClick={onClick}
           type='button'
           className='close-card-button danger'
         />
