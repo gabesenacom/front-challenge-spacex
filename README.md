@@ -14,9 +14,7 @@ Want to test without installing? Test on browser:
 
 ## Screenshots
 
-![Mobile](screenshots/Mobile.png)
-
-![Desktop](screenshots/Desktop.png)
+[See SCREENSHOTS.md](screenshots/SCREENSHOTS.md)
 
 ## Getting started
 To get started with this challenge: 
