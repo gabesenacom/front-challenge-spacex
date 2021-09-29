@@ -1,8 +1,8 @@
-import Header from './components/Header'
-import CardList from './components/CardList'
-
 import { useState, useEffect } from 'react'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 import { getLaunches } from './api/query_data'
+import Mission from './pages/Mission'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   const [latestLaunchesLimit, setLatestLaunchesLimit] = useState(10)
@@ -18,10 +18,19 @@ const App = () => {
   }
 
   return (
-    <main>
-      <Header onSubmit={onUpdateLatestLaunchesLimit} />
-      <CardList launches={launches} />
-    </main>
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Dashboard
+            launches={launches}
+            onSubmit={onUpdateLatestLaunchesLimit}
+          />
+        </Route>
+        <Route path='/mission/:id'>
+          <Mission launches={launches} />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
