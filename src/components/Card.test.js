@@ -41,31 +41,9 @@ it('Card starts with basic content and className not contains expanded', () => {
 
 it('Expand the card', () => {
   act(() => {
-    render(<Card />, container)
+    render(<Card expanded={true} />, container)
   })
 
   const card = container.querySelector('.card')
-  expect(card.className).toBe('card')
-
-  act(() => {
-    card.dispatchEvent(new MouseEvent('click', { bubbles: true }))
-  })
-
   expect(card.className).toBe('card expanded')
-})
-
-it('Close the card', () => {
-  act(() => {
-    render(<Card />, container)
-  })
-
-  const card = container.querySelector('.card')
-  expect(card.className).toBe('card')
-
-  act(() => {
-    card.dispatchEvent(new MouseEvent('click', { bubbles: true }))
-    card.dispatchEvent(new MouseEvent('click', { bubbles: true }))
-  })
-
-  expect(card.className).toBe('card')
 })
