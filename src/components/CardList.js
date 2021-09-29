@@ -5,6 +5,8 @@ const CardList = ({ launches }) => {
   let cards = launches.map(launch => {
     return (
       <Card
+        id={launch.id}
+        expanded={false}
         image={launch.image}
         name={launch.name}
         details={launch.details}
