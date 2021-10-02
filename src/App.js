@@ -27,7 +27,7 @@ const App = () => {
           />
         </Route>
         <Route path='/mission/:id'>
-          <Mission launches={launches} />
+          <Mission />
         </Route>
       </Switch>
     </Router>
